@@ -44,7 +44,7 @@ class PhantomSQL(object):
         db_obj = self._lookup_user(access_id)
         if not db_obj:
             return None
-        return dg_obj
+        return db_obj
 
     def get_user_object_by_display_name(self, display_name):
         q = self._Session.query(PhantomUserDBObject)
