@@ -76,3 +76,7 @@ class PhantomSQL(object):
     def add_user(self, displayname, access_id, access_secret):
         self.add_alter_user(displayname, access_id, access_secret)
         self.commit()
+
+    def close(self):
+        self._Session.close()
+    
