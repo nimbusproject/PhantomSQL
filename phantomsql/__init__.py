@@ -19,6 +19,9 @@ phantom_user_pass_table = Table('phantom_user_pass', metadata,
     Column('CreatedTime', types.TIMESTAMP(), default=datetime.now()),
     )
 
+def phantom_get_default_key_name():
+    return "phantomkey"
+
 
 class PhantomUserDBObject(object):
     def __init__(self):
