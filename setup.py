@@ -23,7 +23,7 @@ setup(name='phantomsql',
       keywords = "Nimbus auto scale",
       long_description="""Some other time""",
       license="Apache2",
-      install_requires = ["simplejson == 2.3.2", "sqlalchemy == 0.7.6", "mysql-python >= 1.2"],
+      install_requires = ["simplejson == 2.3.2", "sqlalchemy == 0.7.6", "mysql-python == 1.2.3"],
 
       classifiers=[
           'Development Status :: 4 - Beta',
