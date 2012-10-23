@@ -8,6 +8,7 @@ from sqlalchemy import types
 from sqlalchemy import Column
 from datetime import datetime
 from sqlalchemy.orm import mapper
+from sqlalchemy.pool import NullPool
 
 metadata = MetaData()
 
@@ -32,7 +33,7 @@ mapper(PhantomUserDBObject, phantom_user_pass_table)
 class PhantomSQL(object):
 
     def __init__(self, dburl):
-        self._engine = sqlalchemy.create_engine(dburl)
+        self._engine = sqlalchemy.create_engine(dburl, poolclass=NullPool)
         metadata.create_all(self._engine)
         self._SessionX = sessionmaker(bind=self._engine)
         self._Session = self._SessionX()
