@@ -15,13 +15,13 @@ if float("%d.%d" % sys.version_info[:2]) < 2.6:
 
 setup(name='phantomsql',
       version=Version,
-      description='sql objects needed for pyhantom and phantomweb, broken out to decrease the dependencies of phantom web',
+      description='SQL objects needed for pyhantom and phantomweb, broken out to decrease the dependencies of phantom web',
       author='Nimbus Development Team',
       author_email='workspace-user@globus.org',
       url='http://www.nimbusproject.org/',
+      download_url="http://www.nimbusproject.org/downloads/phantomsql-%s.tar.gz" % Version,
       packages=find_packages(),
       keywords = "Nimbus auto scale",
-      long_description="""Some other time""",
       license="Apache2",
       install_requires = ["simplejson == 2.3.2", "sqlalchemy == 0.7.6", "mysql-python == 1.2.3"],
 
