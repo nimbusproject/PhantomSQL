@@ -30,13 +30,21 @@ class PhantomUserDBObject(object):
 
 mapper(PhantomUserDBObject, phantom_user_pass_table)
 
-class PhantomSQL(object):
 
+class PhantomSQLSessionMaker(object):
     def __init__(self, dburl):
         self._engine = sqlalchemy.create_engine(dburl, poolclass=NullPool)
         metadata.create_all(self._engine)
         self._SessionX = sessionmaker(bind=self._engine)
-        self._Session = self._SessionX()
+
+    def get_session(self):
+        return self._SessionX()
+
+
+class PhantomSQL(object):
+
+    def __init__(self, session):
+        self._Session = session
 
     def _lookup_user(self, access_key):
         q = self._Session.query(PhantomUserDBObject)
